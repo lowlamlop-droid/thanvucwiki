@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://api.iconify.design/lucide:sparkles.svg?color=%23c084fc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thần Vực Network - Minecraft Tu Tiên</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dark: '#07070b',
+            }
+          }
+        }
+      }
+    </script>
+    <!-- React & Babel CDN để chạy trực tiếp trên web -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body class="bg-[#07070b] text-gray-200 font-sans selection:bg-purple-500 selection:text-white">
+    <div id="root"></div>
+
+    <!-- Code giao diện chính -->
+    <script type="text/babel">
+      function App() {
+        const [tab, setTab] = React.useState('home');
+
+        return (
+          <div className="min-h-screen flex flex-col">
+            {/* Header / Navbar */}
+            <header className="fixed top-0 left-0 w-full z-50 bg-[#07070b]/80 backdrop-blur-md border-b border-white/5 px-6 lg:px-16 py-4 flex justify-between items-center">
+              <div onClick={() => setTab('home')} className="cursor-pointer flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full border border-purple-500/30 bg-purple-500/10 flex items-center justify-center text-purple-400 font-bold">✨</div>
+                <span className="text-2xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-amber-300 bg-clip-text text-transparent tracking-wider">
+                  THẦN VỰC
+                </span>
+              </div>
+
+              <nav className="hidden lg:flex space-x-8 text-sm font-semibold tracking-wide text-gray-300">
+                <button onClick={() => setTab('home')} className={`transition ${tab==='home'?'text-purple-400': 'hover:text-purple-400'}`}>TRANG CHỦ</button>
+                <button onClick={() => setTab('features')} className={`transition ${tab==='features'?'text-purple-400': 'hover:text-purple-400'}`}>TÍNH NĂNG</button>
+                <button onClick={() => setTab('store')} className={`transition ${tab==='store'?'text-purple-400': 'hover:text-purple-400'}`}>CỬA HÀNG</button>
+                <button onClick={() => setTab('community')} className={`transition ${tab==='community'?'text-purple-400': 'hover:text-purple-400'}`}>CỘNG ĐỒNG</button>
+              </nav>
+
+              <a href="https://discord.gg/5hD3fv3M3W" target="_blank" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-purple-900/30 transition">
+                Discord
+              </a>
+            </header>
+
+            {/* Nội dung các trang */}
+            <main className="flex-grow pt-28 px-6 lg:px-24 max-w-7xl mx-auto w-full">
+              {tab === 'home' && (
+                <div className="relative min-h-[75vh] flex items-center justify-between">
+                  <div className="absolute w-[500px] h-[500px] bg-purple-600/10 blur-[150px] rounded-full pointer-events-none -top-20 -left-20"></div>
+                  <div className="max-w-2xl z-10">
+                    <span className="inline-block bg-purple-500/10 text-purple-300 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6 border border-purple-500/20">
+                      ✨ Thần Vực Network - Minecraft Tu Tiên
+                    </span>
+                    <h1 className="text-5xl lg:text-7xl font-black tracking-tight mb-6 text-white drop-shadow-md">
+                      THẦN VỰC
+                    </h1>
+                    <p className="text-gray-400 text-base lg:text-lg mb-8 leading-relaxed">
+                      Một thế giới tu tiên được xây dựng từ cảnh giới, thể chất, công pháp và hàng trăm thần binh. Từ phàm nhân vô danh, tự tay viết nên tiên lộ của riêng ngươi.
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                      <button onClick={() => setTab('features')} className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-cyan-500/20">
+                        Bắt Đầu Tiên Đồ
+                      </button>
+                      <button onClick={() => setTab('features')} className="bg-white/5 hover:bg-white/10 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition border border-white/10">
+                        Khám Phá Tính Năng
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="hidden lg:flex flex-col items-center justify-center z-10 relative">
+                    <div className="w-72 h-72 rounded-full border border-purple-500/30 flex items-center justify-center relative animate-pulse bg-purple-950/20">
+                      <div className="absolute inset-0 rounded-full border border-pink-500/20 scale-125"></div>
+                      <div className="text-center">
+                        <p className="text-xs text-purple-400 uppercase tracking-widest font-bold">IP Server</p>
+                        <p className="text-xl font-bold text-white mt-1">thanvucmc.xyz</p>
+                        <button onClick={() => {navigator.clipboard.writeText('thanvucmc.xyz'); alert('Đã sao chép IP thanvucmc.xyz!');}} className="mt-3 bg-purple-600/30 hover:bg-purple-600/50 text-purple-300 border border-purple-500/40 text-xs px-4 py-1.5 rounded-lg transition">
+                          Sao Chép IP
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {tab === 'features' && (
+                <div className="py-12">
+                  <div className="text-center mb-16">
+                    <p className="text-xs text-purple-400 font-bold uppercase tracking-widest mb-2">Cẩm Nang Người Chơi</p>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Hệ Thống Tính Năng Thần Vực</h2>
+                    <p className="text-gray-400 text-sm">Tra cứu điều kiện, cách tham gia, lệnh sử dụng và phần thưởng chi tiết.</p>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="bg-[#12121a]/70 border border-purple-500/20 p-8 rounded-2xl">
+                      <h3 className="font-bold text-xl text-white mb-2">1. Tổng Quan Tu Vi</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">Nhân vật mạnh lên qua nhiều hệ thống nối tiếp nhau: nhiệm vụ mở nội dung, Thiên tạo tiến độ dài hạn, Linh Khí dùng để Đột Phá.</p>
+                    </div>
+                    <div className="bg-[#12121a]/70 border border-purple-500/20 p-8 rounded-2xl">
+                      <h3 className="font-bold text-xl text-white mb-2">2. Hệ Thống Cảnh Giới</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">Giới hạn tu vi lên tới Lv.25000. Trải dài qua các tầng: Luyện Thể, Ngưng Khí, Trúc Cơ, Kim Đan, Nguyên Anh, Hóa Thần.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {tab === 'store' && (
+                <div className="py-12 text-center">
+                  <p className="text-xs text-amber-400 font-bold uppercase tracking-widest mb-2">Hỗ Trợ Máy Chủ</p>
+                  <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Cửa Hàng & Donate</h2>
+                  <p className="text-gray-400 text-sm max-w-xl mx-auto mb-12">Quyên góp của bạn là nguồn động lực lớn nhất để máy chủ duy trì và phát triển tính năng mới.</p>
+                  <div className="bg-[#12121a]/70 border border-amber-500/20 p-8 rounded-2xl max-w-3xl mx-auto text-center">
+                    <h3 className="text-xl font-bold text-amber-300 mb-6">Mốc Donate Nhận Linh Thạch</h3>
+                    <div className="grid grid-cols-2 gap-4 text-left mb-8">
+                      <div className="bg-black/40 p-4 rounded-xl border border-white/5">
+                        <p className="text-xs text-gray-400">10,000 VNĐ</p>
+                        <p className="text-amber-400 font-bold mt-1">3,000 Linh Thạch</p>
+                      </div>
+                      <div className="bg-black/40 p-4 rounded-xl border border-white/5">
+                        <p className="text-xs text-gray-400">50,000 VNĐ</p>
+                        <p className="text-amber-400 font-bold mt-1">15,000 Linh Thạch</p>
+                      </div>
+                    </div>
+                    <a href="https://discord.gg/5hD3fv3M3W" target="_blank" className="inline-block bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20">
+                      Mở Kênh Donate Bằng Discord
+                    </a>
+                  </div>
+                </div>
+              )}
+
+              {tab === 'community' && (
+                <div className="py-12">
+                  <div className="text-center mb-16">
+                    <p className="text-xs text-purple-400 font-bold uppercase tracking-widest mb-2">Mạng Xã Hội</p>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-white">Cộng Đồng Thần Vực</h2>
+                  </div>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <a href="https://discord.gg/5hD3fv3M3W" target="_blank" className="bg-[#12121a]/70 border border-purple-500/20 p-8 rounded-2xl text-center block hover:border-purple-500 transition">
+                      <h3 className="font-bold text-lg text-white mb-2">Discord Chính</h3>
+                      <p className="text-gray-400 text-sm">Hỗ trợ báo lỗi, chém gió 24/7 cùng anh em tu sĩ.</p>
+                    </a>
+                    <div className="bg-[#12121a]/70 border border-purple-500/20 p-8 rounded-2xl text-center">
+                      <h3 className="font-bold text-lg text-white mb-2">Fanpage Facebook</h3>
+                      <p className="text-gray-400 text-sm">Cập nhật tin tức & Event Code quà tặng mới nhất.</p>
+                    </div>
+                    <div className="bg-[#12121a]/70 border border-purple-500/20 p-8 rounded-2xl text-center">
+                      <h3 className="font-bold text-lg text-white mb-2">Kênh TikTok</h3>
+                      <p className="text-gray-400 text-sm">Xem video highlight độ kiếp và săn boss cực chất.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </main>
+
+            {/* Footer */}
+            <footer className="text-center py-8 border-t border-white/5 text-gray-500 text-xs tracking-wider mt-auto">
+              <p>&copy; 2026 Thần Vực Network. Minecraft Tu Tiên.</p>
+            </footer>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
